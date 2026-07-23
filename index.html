@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CallMeKFC Network</title>
+
+<link rel="icon" type="image/png" href="pfp.png">
+
+<style>
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    margin:0;
+    background:#0b0b0b;
+    color:#eee;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* Header */
+
+header {
+    height:70px;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+
+    background:#101010;
+    border-bottom:1px solid #222;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+
+.about-profile {
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.about-profile img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #ffaa00;
+}
+
+@media(max-width:700px){
+
+.about-profile {
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+}
+
+.logo {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#ffaa00;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+/* Hero */
+
+.hero {
+
+    min-height:500px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:90px 8%;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.9)
+    ),
+    url("seedmap.png")
+    center/cover;
+
+}
+
+
+.hero h1 {
+
+    font-size:60px;
+    margin:0;
+
+}
+
+
+.hero span {
+
+    color:#ffaa00;
+
+}
+
+
+.hero p {
+
+    max-width:600px;
+    color:#bbb;
+    font-size:20px;
+    line-height:1.5;
+
+}
+
+
+.status {
+    margin-top:25px;
+
+    display:inline-block;
+    width:max-content;
+
+    padding:15px 20px;
+
+    background:#151515;
+    border:1px solid #292929;
+
+    border-radius:8px;
+}
+
+.server-ip {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    width:100%;
+
+    margin-top:15px;
+    padding:10px;
+
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:8px;
+
+    color:#ffaa00;
+    font-size:15px;
+}
+
+
+.server-ip button {
+    width:70px;
+    height:26px;
+
+    margin:0;
+    padding:0;
+
+    background:#222;
+    color:white;
+
+    font-size:13px;
+    text-align:center;
+
+    flex:0 0 70px;
+}
+.server-ip button:hover {
+    background:#333;
+}
+
+#network-status.checking {
+    color:#ffcc00;
+}
+
+#network-status {
+    font-weight:bold;
+}
+
+
+.buttons {
+
+    margin-top:25px;
+
+}
+
+
+button {
+
+    border:0;
+    border-radius:6px;
+
+    padding:12px 22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.discord {
+
+    background:#5865F2;
+    color:white;
+
+}
+
+
+.contact {
+
+    background:#222;
+    color:white;
+
+}
+
+
+/* Sections */
+
+
+section {
+
+    padding:55px 8%;
+
+}
+
+
+h2 {
+
+    font-size:32px;
+
+}
+
+
+
+/* Cards */
+
+
+.cards {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, 350px);
+    gap:20px;
+}
+
+
+.card {
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    transition:.2s;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+.server-title {
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.server-title h3 {
+    margin:0;
+}
+
+.server-icon {
+    font-size:32px;
+}
+
+
+.server-status {
+    margin-top:20px;
+    padding:12px;
+    background:#0f0f0f;
+    border:1px solid #333;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    color:#ffcc00;
+}
+
+
+.player-count {
+    color:#ffaa00;
+    font-size:18px;
+}
+
+.card button {
+
+    width:100%;
+
+    margin-top:auto;
+
+    background:#222;
+    color:white;
+
+}
+
+
+/* Community */
+
+.community {
+
+    background:#101010;
+
+}
+
+
+
+/* Footer */
+
+
+footer {
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-top:1px solid #222;
+
+}
+
+
+
+@media(max-width:700px){
+
+.hero h1 {
+
+    font-size:42px;
+
+}
+
+
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+<div class="logo">
+CallMeKFC Network
+</div>
+
+</header>
+
+
+
+
+<div class="hero">
+
+
+<h1>
+CallMeKFC <span>Network</span>
+</h1>
+
+
+<p>
+A Minecraft network featuring survival
+servers, and community events.
+</p>
+
+
+
+<div class="status">
+
+<div id="network-status" class="checking">
+Checking status...
+</div>
+
+
+<div id="network-players">
+Loading players...
+</div>
+
+</div>
+
+
+
+<div class="buttons">
+
+<button class="discord"
+onclick="window.open('https://discord.com/users/666777604040425502','_blank')">
+
+Message @CallMeKFC
+
+</button>
+
+
+<button class="contact"
+onclick="window.open('mailto:contact@callmekfc.net','_blank')">
+
+Email Me
+
+</button>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<section id="servers">
+
+<h2>
+Servers
+</h2>
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="server-title">
+
+<span class="server-icon">
+🎉
+</span>
+
+<h3>
+Events
+</h3>
+
+</div>
+
+
+<div id="events-status" class="server-status">
+Checking...
+</div>
+
+<div class="server-ip">
+
+<span>
+events.callmekfc.net
+</span>
+
+<button onclick="copyIP('events.callmekfc.net')">
+Copy
+</button>
+
+</div>
+
+<p>
+Limited-time Minecraft events featuring custom rules,
+competitions, and challenges.
+</p>
+
+
+<p>
+Next event: <strong>TBD</strong>
+</p>
+
+
+<button onclick="window.open('https://discord.com/users/666777604040425502','_blank')">
+
+Contact Event Host
+
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<div class="server-title">
+
+<span class="server-icon">
+🏁
+</span>
+
+<h3>
+Checkerboard Survival
+</h3>
+
+</div>
+
+
+<div id="survival-status" class="server-status">
+Checking...
+</div>
+
+<div class="server-ip">
+
+<span>
+checkerboard.callmekfc.net
+</span>
+
+<button onclick="copyIP('checkerboard.callmekfc.net')">
+Copy
+</button>
+
+</div>
+
+<p>
+A survival server operated by the Checkerboard community.
+</p>
+
+
+<p>
+Version info, rules, and announcements are available in the community Discord.
+</p>
+
+
+<button onclick="window.open('https://discord.gg/wguafxrNuB','_blank')">
+
+Checkerboard Community Discord
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section class="community" id="community">
+
+<h2>
+About
+</h2>
+
+<div class="about-profile">
+
+<img src="pfp.png">
+
+<div>
+
+<p>
+CallMeKFC Network hosts Minecraft survival servers and community events.
+</p>
+
+<p>
+Email: <strong>contact@callmekfc.net</strong>
+</p>
+
+<p>
+Discord: <strong>@CallMeKFC</strong>
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<footer>
+Built by <strong>@CallMeKFC</strong>
+</footer>
+
+
+
+
+
+
+<script>
+
+const WORKER_URL =
+"https://callmekfc-status.callmekfcs.workers.dev";
+
+
+async function loadStatus(){
+
+try {
+
+const response = await fetch(WORKER_URL);
+const data = await response.json();
+
+
+const survival = data.survival;
+const events = data.events;
+
+document.getElementById("network-status").classList.remove("checking");
+document.getElementById("events-status").classList.remove("checking");
+document.getElementById("survival-status").classList.remove("checking");
+
+
+/* Total players */
+
+const totalPlayers =
+survival.players.online + events.players.online;
+
+
+
+/* Network status */
+
+const networkOnline = survival.online || events.online;
+
+const networkStatus = document.getElementById("network-status");
+
+networkStatus.classList.remove("checking");
+
+networkStatus.innerHTML =
+networkOnline
+? `<span style="color:#45d35b;">Network Online</span>`
+: `<span style="color:#ff4444;">Network Offline</span>`;
+
+document.getElementById("network-players").innerHTML =
+`${totalPlayers} Players Online`;
+
+
+
+/* Survival */
+
+document.getElementById("survival-status").innerHTML =
+survival.online
+? `<span style="color:#45d35b;">Online</span>: <span style="color:white;">${survival.players.online} Players Online</span>`
+: `<span style="color:#ff4444;">Offline</span>`;
+
+
+
+/* Events */
+
+document.getElementById("events-status").innerHTML =
+events.online
+? `<span style="color:#45d35b;">Online</span>: <span style="color:white;">${events.players.online} Players Online</span>`
+: `<span style="color:#ff4444;">Offline</span>`;
+
+
+}
+
+catch(error){
+
+console.error(error);
+
+document.getElementById("network-status").innerHTML =
+"⚠ Status unavailable";
+
+}
+
+}
+
+
+loadStatus();
+
+function copyIP(ip) {
+    navigator.clipboard.writeText(ip);
+
+    event.target.innerHTML = "Copied!";
+    
+    setTimeout(() => {
+        event.target.innerHTML = "Copy";
+    }, 1500);
+}
+
+</script>
+
+
+</body>
+</html>
