@@ -8,16 +8,18 @@
 
     <title>CallMeKFC</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
-
 
 <body>
 
     <header>
 
-        <h1>CallMeKFC</h1>
+        <a class="logo" href="/">
+            <img src="/assets/images/pfp.png" alt="CallMeKFC">
+            <span>CallMeKFC</span>
+        </a>
 
         <nav>
             <a href="/">Home</a>
@@ -27,23 +29,61 @@
 
     </header>
 
-
     <main>
 
-        <div class="card">
+        <section class="hero">
 
-            <h2>Welcome to CallMeKFC</h2>
+            <div class="overlay"></div>
 
-            <p>
-                Projects, servers, and creations made by CallMeKFC.
-            </p>
+            <div class="hero-content">
 
-            <a class="button" href="/projects">
-                View Projects
-            </a>
+                <p class="eyebrow">
+                    Welcome
+                </p>
 
-        </div>
+                <h1>
+                    Building Minecraft servers,<br>
+                    websites, and whatever comes next.
+                </h1>
 
+                <p class="description">
+                    Explore my projects, including KFC Network,
+                    Checkerboard, and future creations.
+                </p>
+
+                <a href="/projects" class="button">
+                    Explore Projects →
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="featured">
+
+            <h2>Featured Project</h2>
+
+            <div class="project">
+
+                <div>
+
+                    <h3>KFC Network</h3>
+
+                    <p>
+                        A Minecraft network featuring Checkerboard,
+                        custom plugins, community events,
+                        and downloadable worlds.
+                    </p>
+
+                </div>
+
+                <a href="/projects/kfcnetwork" class="button secondary">
+                    Learn More
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
